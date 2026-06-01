@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cennik | Warsztat Samochodowy Legionowo</title>
+  <meta name="description" content="Cennik warsztatu samochodowego w Legionowie. Orientacyjne ceny diagnostyki, hamulców, zawieszenia, opon i klimatyzacji.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .price-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .notice {
+      background: #fffbeb;
+      border-left: 4px solid #d4a017;
+      padding: .875rem 1.25rem;
+      font-size: .85rem;
+      color: #5c4a10;
+      margin-bottom: 2.5rem;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.65;
+    }
+
+    .price-section { margin-bottom: 2.75rem; }
+    .price-section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: .6rem;
+      margin-bottom: 0;
+    }
+    .price-section-head h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+    .price-section-head small {
+      font-family: var(--body);
+      font-size: .72rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table tr { border-bottom: 1px solid var(--border); }
+    .price-table tr:last-child { border-bottom: none; }
+    .price-table td { padding: .825rem .25rem; font-size: .92rem; vertical-align: middle; }
+    .price-table td:first-child { color: var(--text); font-weight: 500; width: 58%; }
+    .price-table td:nth-child(2) { color: var(--muted); font-size: .8rem; width: 27%; padding-left: .5rem; }
+    .price-table td:last-child {
+      text-align: right;
+      font-family: var(--head);
+      font-size: 1.1rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .on-req { font-family: var(--body); font-size: .82rem; font-weight: 500; color: var(--muted); }
+
+    /* sidebar */
+    .sidebar { position: sticky; top: 108px; }
+    .sidebar-card {
+      background: var(--bg-dark);
+      padding: 1.75rem;
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+    }
+    .sidebar-card h3 {
+      font-family: var(--head);
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+      letter-spacing: .5px;
+    }
+    .sidebar-phone {
+      font-family: var(--head);
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      margin-bottom: .5rem;
+      line-height: 1;
+      transition: color .2s;
+    }
+    .sidebar-phone:hover { color: var(--red); }
+    .sidebar-hours {
+      font-size: .8rem;
+      color: #5a5550;
+      line-height: 2;
+    }
+    .sidebar-hours strong { color: #888; }
+
+    .sidebar-note {
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      border-radius: 4px;
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .sidebar-note strong {
+      display: block;
+      margin-bottom: .4rem;
+      color: var(--text);
+      font-size: .85rem;
+    }
+    .sidebar-links { margin-top: 1.25rem; }
+    .sidebar-links a {
+      display: block;
+      font-size: .82rem;
+      color: var(--red);
+      text-decoration: none;
+      padding: .4rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: opacity .2s;
+    }
+    .sidebar-links a:hover { opacity: .75; }
+    .sidebar-links a:last-child { border-bottom: none; }
+
+    @media (max-width: 860px) {
+      .price-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .price-table td:nth-child(2) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-address">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    ul. Przykładowa 12, Legionowo
+  </span>
+  <a href="tel:+48123456789" class="topbar-phone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.1 19.79 19.79 0 012 .82 2 2 0 013.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    +48 123 456 789
+  </a>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Warsztat<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="uslugi.html">Usługi</a></li>
+    <li><a href="o-nas.html">O nas</a></li>
+    <li><a href="cennik.html" class="active">Cennik</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <button class="ham" id="ham" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="uslugi.html">Usługi</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="cennik.html">Cennik</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="tel:+48123456789" class="mob-phone">Zadzwoń: +48 123 456 789</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a><span>›</span>Cennik
+    </div>
+    <h1>Cennik usług</h1>
+    <p>Ceny orientacyjne. Dokładna wycena po oględzinach — przed naprawą, zawsze.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="notice">
+      Podane ceny są orientacyjne i mogą się różnić w zależności od marki, modelu i stanu technicznego pojazdu.
+      Przed każdą naprawą wystawiamy wycenę — nic nie robimy bez Twojej zgody.
+    </div>
+
+    <div class="price-layout">
+      <!-- TABELE CEN -->
+      <div>
+
+        <div class="price-section" id="diagnostyka">
+          <div class="price-section-head">
+            <h2>Diagnostyka</h2>
+            <small>cena za usługę</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Diagnostyka komputerowa (odczyt błędów)</td><td>wszystkie marki, OBD2</td><td>od [XX] zł</td></tr>
+            <tr><td>Kasowanie błędów</td><td></td><td>[XX] zł</td></tr>
+            <tr><td>Przegląd przed zakupem</td><td>raport pisemny</td><td>od [XX] zł</td></tr>
+            <tr><td>Kontrola geometrii kół (sam pomiar)</td><td></td><td>[XX] zł</td></tr>
+          </table>
+        </div>
+
+        <div class="price-section" id="hamulce">
+          <div class="price-section-head">
+            <h2>Układ hamulcowy</h2>
+            <small>robocizna, bez części</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Wymiana klocków (oś)</td><td>przód lub tył</td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana tarcz + klocków (oś)</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana bębnów</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Odpowietrzanie + wymiana płynu</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Naprawa zacisku</td><td></td><td class="on-req">wycena indyw.</td></tr>
+          </table>
+        </div>
+
+        <div class="price-section" id="zawieszenie">
+          <div class="price-section-head">
+            <h2>Zawieszenie i kierownica</h2>
+            <small>robocizna, bez części</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Wymiana amortyzatora (szt.)</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana wahacza</td><td>dolny / górny</td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana łożyska koła</td><td>przód lub tył</td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana drążka kierowniczego</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Regulacja geometrii — oś przednia</td><td></td><td>[XX] zł</td></tr>
+            <tr><td>Regulacja geometrii — 4 koła</td><td></td><td>[XX] zł</td></tr>
+          </table>
+        </div>
+
+        <div class="price-section" id="silnik">
+          <div class="price-section-head">
+            <h2>Silnik i osprzęt</h2>
+            <small>robocizna, bez części</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Wymiana oleju + filtr</td><td>bez oleju</td><td>[XX] zł</td></tr>
+            <tr><td>Wymiana rozrządu (pasek)</td><td>zależnie od silnika</td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana rozrządu (łańcuch)</td><td></td><td class="on-req">wycena indyw.</td></tr>
+            <tr><td>Wymiana uszczelki pod głowicą</td><td></td><td class="on-req">wycena indyw.</td></tr>
+            <tr><td>Wymiana filtrów (powietrze, kabina, paliwo)</td><td>bez filtrów</td><td>od [XX] zł</td></tr>
+          </table>
+        </div>
+
+        <div class="price-section" id="klimatyzacja">
+          <div class="price-section-head">
+            <h2>Klimatyzacja</h2>
+            <small>cena za usługę</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Napełnianie czynnikiem R134a</td><td>starsze auta</td><td>od [XX] zł</td></tr>
+            <tr><td>Napełnianie czynnikiem R1234yf</td><td>po 2017 r.</td><td>od [XX] zł</td></tr>
+            <tr><td>Czyszczenie ozonowaniem</td><td>dezynfekcja kabiny</td><td>[XX] zł</td></tr>
+            <tr><td>Naprawa układu klimatyzacji</td><td></td><td class="on-req">wycena indyw.</td></tr>
+          </table>
+        </div>
+
+        <div class="price-section" id="opony">
+          <div class="price-section-head">
+            <h2>Opony</h2>
+            <small>komplet 4 szt.</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Sezonowa wymiana (na felgach)</td><td>demontaż + montaż</td><td>[XX] zł</td></tr>
+            <tr><td>Montaż opon na felgi + wyważanie</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Samo wyważanie</td><td>4 szt.</td><td>[XX] zł</td></tr>
+            <tr><td>Przechowywanie opon (sezon)</td><td>opisane, magazyn</td><td>[XX] zł</td></tr>
+            <tr><td>Wulkanizacja / naprawa opony</td><td></td><td>od [XX] zł</td></tr>
+          </table>
+        </div>
+
+        <div class="price-section" id="elektryka">
+          <div class="price-section-head">
+            <h2>Elektryka</h2>
+            <small>robocizna, bez części</small>
+          </div>
+          <table class="price-table">
+            <tr><td>Wymiana akumulatora</td><td>bez akumulatora</td><td>[XX] zł</td></tr>
+            <tr><td>Sprawdzenie / wymiana alternatora</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Wymiana rozrusznika</td><td></td><td>od [XX] zł</td></tr>
+            <tr><td>Diagnostyka instalacji elektrycznej</td><td></td><td>[XX] zł/h</td></tr>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3>Zadzwoń po wycenę</h3>
+          <a href="tel:+48123456789" class="sidebar-phone">+48 123 456 789</a>
+          <div class="sidebar-hours">
+            <strong>Pon – Pt</strong> 8:00 – 18:00<br>
+            <strong>Sobota</strong> 8:00 – 14:00<br>
+            <strong>Niedziela</strong> nieczynne
+          </div>
+        </div>
+
+        <div class="sidebar-note">
+          <strong>Jak wygląda wycena?</strong>
+          Przyjeżdżasz, mechanik ogląda auto i podaje cenę. Dopiero po Twojej zgodzie zaczynamy. Żadnych niespodzianek na fakturze.
+        </div>
+
+        <div class="sidebar-note" style="margin-top:1rem;">
+          <strong>Nie widzisz swojej usługi?</strong>
+          Cennik nie jest wyczerpujący. Zadzwoń — powiemy czy to robimy.
+        </div>
+
+        <div class="sidebar-links">
+          <a href="#diagnostyka">↓ Diagnostyka</a>
+          <a href="#hamulce">↓ Hamulce</a>
+          <a href="#zawieszenie">↓ Zawieszenie</a>
+          <a href="#silnik">↓ Silnik</a>
+          <a href="#klimatyzacja">↓ Klimatyzacja</a>
+          <a href="#opony">↓ Opony</a>
+          <a href="#elektryka">↓ Elektryka</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">Warsztat<span>.</span></a>
+      <address>
+        Warsztat Kowalski<br>
+        ul. Przykładowa 12<br>
+        05-120 Legionowo<br>
+        Tel: <a href="tel:+48123456789">+48 123 456 789</a>
+      </address>
+    </div>
+    <div class="footer-links">
+      <h4>Usługi</h4>
+      <ul>
+        <li><a href="uslugi.html#diagnostyka">Diagnostyka</a></li>
+        <li><a href="uslugi.html#hamulce">Hamulce</a></li>
+        <li><a href="uslugi.html#zawieszenie">Zawieszenie</a></li>
+        <li><a href="uslugi.html#silnik">Silnik</a></li>
+        <li><a href="uslugi.html#klimatyzacja">Klimatyzacja</a></li>
+        <li><a href="uslugi.html#opony">Opony</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Warsztat</h4>
+      <ul>
+        <li><a href="o-nas.html">O nas</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Warsztat Kowalski · ul. Przykładowa 12, 05-120 Legionowo</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('mob');
+  ham.addEventListener('click', () => { const o = mob.classList.toggle('open'); ham.setAttribute('aria-expanded', o); });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mob.classList.remove('open'); ham.setAttribute('aria-expanded', false); }));
+</script>
+</body>
+</html>
